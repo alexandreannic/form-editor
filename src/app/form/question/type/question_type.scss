@@ -1,0 +1,15 @@
+@import 'src/assets/variables';
+
+pc-question-type {
+  display: flex;
+  align-items: center;
+}
+
+.pc-question-type_i {
+  margin: margin();
+  color: $text-color-light;
+}
+
+.pc-question-type_body {
+  flex: 1;
+}

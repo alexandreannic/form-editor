@@ -1,0 +1,9 @@
+@import 'variables';
+
+textarea {
+  resize: vertical;
+}
+
+mat-form-field {
+  font-size: $text-size !important;
+}

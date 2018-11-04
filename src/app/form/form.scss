@@ -1,0 +1,38 @@
+@import 'src/assets/variables';
+
+pc-form-editor {
+  display: flex;
+  max-width: 810px;
+  margin: 0 auto;
+  position: relative;
+  align-items: flex-start;
+  font-size: $text-size;
+}
+
+.pc-form_body {
+  flex: 1;
+}
+
+.pc-form_actions {
+  @extend %card;
+  @include transition(.4s);
+  top: 0;
+  margin-left: padding();
+  padding: padding(1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  right: 0;
+}
+
+.pc-form_action {
+  margin-bottom: padding();
+}
+
+pc-form-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+}

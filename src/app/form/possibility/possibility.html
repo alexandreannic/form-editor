@@ -1,0 +1,21 @@
+<div [formGroup]="form" class="pc-possibility">
+    <span [ngSwitch]="parent.question_type" class="pc-possibility_i">
+        <mat-icon *ngSwitchCase="Type.SELECT">remove</mat-icon>
+        <mat-icon *ngSwitchCase="Type.RADIO">radio_button_unchecked</mat-icon>
+        <mat-icon *ngSwitchCase="Type.CHECKBOX">check_box_outline_blank</mat-icon>
+    </span>
+  <mat-form-field floatLabel="never" class="pc-possibility_input form-field-compact">
+    <input matInput #posssibility
+           formControlName="label"
+           [placeholder]="(''|m).placeholder.option.label">
+  </mat-form-field>
+  <mat-form-field *ngIf="isActive && weights" style="width: 100px; margin-left: 8px" class="form-field-compact">
+    <mat-select formControlName="weight">
+      <mat-option *ngFor="let w of weights" [value]="w">{{(''|m).weight[w]}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <!--<button type="submit" style="display:none" (click)="add.emit()"></button>-->
+  <button mat-icon-button *ngIf="isActive && parent.possibilities.length > 1" (click)="remove($event)">
+    <mat-icon>clear</mat-icon>
+  </button>
+</div>

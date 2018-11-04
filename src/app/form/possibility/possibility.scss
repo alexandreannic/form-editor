@@ -1,0 +1,17 @@
+@import 'src/assets/variables';
+
+.pc-possibility {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: margin();
+}
+
+.pc-possibility_i {
+  color: $text-color-disable;
+  margin-right: 10px;
+}
+
+.pc-possibility_input {
+  width: 100%;
+}

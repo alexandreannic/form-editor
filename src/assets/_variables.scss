@@ -1,0 +1,70 @@
+@import '~@angular/material/theming';
+
+@function rem($multiplier) {
+  $font-size: 10px;
+  @return $multiplier * $font-size;
+}
+
+@function padding($multiplier: 2) {
+  $padding: 8px;
+  @return $multiplier * $padding;
+}
+
+@function margin($multiplier: 1) {
+  $margin: 12px;
+  @return $multiplier * $margin;
+}
+
+$pc-primary: mat-palette($mat-blue);
+$pc-accent: mat-palette($mat-purple, A200, A100, A400);
+$pc-warn: mat-palette($mat-red);
+$pc-theme: mat-light-theme($pc-primary, $pc-accent, $pc-warn);
+
+$color-primary: map-get($pc-primary, 'default');
+$color-accent: map-get($pc-accent, 'default');
+$color-primary-contrast: mat-contrast($pc-primary, 800);
+$color-primary-contrast-light: mat-contrast($pc-primary, 900);
+$color-content: white;
+$color-toolbar: #f5f5f5;
+$color-divider: rgba(black, 0.12);
+$color-bg: #f2f2f2;
+$color-bg-covered: rgba(0, 0, 0, .039);
+$text-size: rem(1.4);
+$text-size-strong: rem(1.7);
+$text-size-em: rem(1.2);
+$text-color-disable: rgba(black, 0.38);
+$text-color-light: rgba(black, 0.54);
+$text-bold: 500;
+$color-success: #00a814;
+$color-error: red;
+$color-warning: #FF8000;
+$color-info: #0288d1;
+
+$question-header-height: 48px;
+
+%card {
+  @include mat-elevation(1);
+  background: $color-content;
+  position: relative;
+  margin-bottom: margin(2);
+}
+
+%card-toolbar {
+  display: flex;
+  align-items: center;
+  background: $color-toolbar;
+  border-bottom: 1px solid $color-divider;
+  font-size: $text-size-strong;
+  padding: 0 padding(1) 0 padding(1);
+  height: 48px;
+}
+
+@mixin transition($duration: 160ms) {
+  transition: $duration cubic-bezier(0.4, 0, 0.2, 1)
+}
+
+@mixin truncate() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

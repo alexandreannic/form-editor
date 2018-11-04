@@ -1,0 +1,29 @@
+<div [formGroup]="form">
+  <header class="pc-section_header">
+    <mat-form-field class="pc-section_title" floatLabel="never">
+      <input matInput formControlName="name" class="section-title"
+             [placeholder]="(''|m).placeholder.section.title">
+    </mat-form-field>
+    <aside class="pc-section_actions" (click)="$event.stopPropagation()">
+      <button mat-icon-button (click)="remove()" [matTooltip]="(''|m).delete">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </aside>
+  </header>
+  <mat-form-field class="fullwidth" floatLabel="never">
+            <textarea matInput formControlName="description"
+                      [placeholder]="(''|m).placeholder.section.description"></textarea>
+  </mat-form-field>
+  <section #questions [dragula]="'questions-bag' + section.id" [dragulaModel]="section.questions"
+           [attr.data-id]="section.id">
+    <pc-question *ngFor="let q of section.questions; let i = index"
+                 [attr.data-id]="q.id"
+                 [question]="q"
+                 [parent]="section"
+                 [parentId]="section.id"
+                 [index]="i"
+                 [isActive]="isActive && (acQuestion$ | async) == i"
+                 (onActive)="active()">
+    </pc-question>
+  </section>
+</div>

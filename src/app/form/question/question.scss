@@ -1,0 +1,99 @@
+@import 'src/assets/variables';
+
+pc-question {
+  @extend %card;
+  @include transition;
+  margin-bottom: 0;
+  display: block;
+  overflow: hidden;
+
+  mat-input-container {
+    display: block;
+    flex: 1; // If he is in a flexbox
+  }
+
+  &.-closed {
+    cursor: move;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+
+    &:not(:last-of-type) {
+      border-bottom: 1px solid $color-divider;
+    }
+
+    .mat-form-field-underline {
+      border-color: transparent;
+      background: none;
+    }
+  }
+
+  &.-opened {
+    @include mat-elevation(12);
+    margin: 20px -24px;
+
+    .mat-form-field-flex {
+      border-radius: 4px;
+      background: rgba(0, 0, 0, .03);
+      padding: padding(.25) margin();
+    }
+  }
+}
+
+.pc-question_header {
+  @extend %card-toolbar;
+  overflow: hidden;
+  position: relative;
+}
+
+.pc-question_actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.pc-question_type {
+  width: 140px !important;
+}
+
+.pc-question_actions_divider {
+  border: none;
+  width: 1px;
+  height: 48px;
+  background: $color-divider;
+  margin: 0 10px 0 14px;
+  display: inline-block;
+}
+
+.pc-question_body {
+  padding: padding() margin(2) margin() margin(2);
+}
+
+.question_label {
+  width: 100%;
+  font-size: $text-size-strong !important;
+}
+
+.question_description {
+  width: 100%;
+  font-size: $text-size-em;
+  margin-top: padding();
+}
+
+.mat-form-field-prefix {
+  color: $text-color-disable;
+}
+
+.question_answer {
+  margin: 0 margin(2) padding() 40px + padding();
+}
+
+.pc-possibility-add_btn {
+  margin-left: padding(-2);
+}
+
+.pc-question-document_ext {
+  min-width: 60px;
+  margin-right: padding(3);
+  display: inline-block;
+}

@@ -1,0 +1,46 @@
+@import 'variables';
+
+.fullwidth {
+  width: 100%;
+}
+
+.color-light {
+  color: $text-color-light;
+}
+
+.margin-bottom {
+  margin-bottom: margin();
+}
+
+.margin-right {
+  margin-right: margin();
+}
+
+.hidden {
+  display: none !important;
+}
+
+.color-error {
+  color: $color-error !important;
+}
+
+.color-success {
+  color: $color-success !important;
+}
+
+.color-warning {
+  color: $color-warning !important;
+}
+
+.color-info {
+  color: $color-info !important;
+}
+
+.divider {
+  background: $color-divider;
+  height: 1px;
+  width: 100%;
+  display: block;
+  border: none;
+  margin: margin() 0;
+}

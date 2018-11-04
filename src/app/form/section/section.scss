@@ -1,0 +1,44 @@
+@import 'src/assets/variables';
+
+$section-padding: 20px;
+
+pc-section {
+  background: $color-bg-covered;
+  padding: 10px $section-padding $section-padding $section-padding - 2;
+  border-left: 2px solid transparent;
+  display: block;
+  margin: 0 auto margin(2) auto;
+  max-width: 780px;
+  transform-origin: 100% 0%;
+
+  &.-active {
+    border-color: $color-primary;
+  }
+}
+
+.pc-section_header {
+  display: flex;
+  align-items: center;
+}
+
+.pc-section_title {
+  width: 1000%;
+  font-size: rem(2.2) !important;
+}
+
+.pc-section_actions {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.section-title {
+  font-size: 24px;
+}
+
+.pc-section_questions-empty {
+  border: 1px dashed $color-divider;
+  color: $text-color-disable;
+  text-align: center;
+  padding: padding();
+}

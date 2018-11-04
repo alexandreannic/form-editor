@@ -1,0 +1,91 @@
+@import 'src/assets/variables';
+
+.pc-dep_picked {
+  cursor: pointer;
+  min-width: 240px;
+  background: $color-bg;
+  border-radius: 60px;
+  display: inline-flex;
+  align-items: center;
+  padding: padding(.5) padding(.5) padding(.5) padding();
+}
+
+.pc-dep_picked_label {
+  @include truncate;
+  flex: 1;
+  margin-right: padding();
+}
+
+.pc-dep_picked_btn {
+  $size: 32px;
+  height: $size !important;
+  width: $size !important;
+  line-height: $size !important;
+}
+
+.pc-dep_picked_desc {
+  border-left: 1px solid $color-divider;
+  padding: 0 padding();
+  margin: padding(1) padding() padding(1) padding(3);
+}
+
+.pc-dep_picked_row {
+  &:not(:last-of-type) {
+    margin-bottom: padding();
+  }
+}
+
+.pc-dep_picked_row_label {
+  font-weight: $text-bold;
+  font-size: $text-size-strong;
+  margin-bottom: padding(.5);
+}
+
+.pc-dep_picked_row_val {
+  @include truncate;
+  max-width: 400px;
+}
+
+.pc-dep_node {
+  display: flex;
+  align-items: center;
+  padding-right: padding(1);
+}
+
+.pc-dep_node-empty {
+  color: $text-color-disable;
+  padding-left: 10px;
+}
+
+.pc-dep_node_txt {
+  @include truncate;
+}
+
+.pc-dep_tree {
+  border-left: 1px solid $color-divider;
+  margin-left: 20px;
+  padding-left: padding(1);
+}
+
+.pc-dep_node-i {
+  @include transition;
+
+  &.-search {
+    color: $text-color-disable;
+  }
+
+  &.-selected {
+    transform: rotate(90deg);
+  }
+}
+
+.pc-dep_radio {
+  display: block !important;
+  margin-bottom: padding() !important;
+}
+
+.pc-dep_input {
+  .mat-form-field-wrapper {
+    padding-bottom: 0;
+  }
+}

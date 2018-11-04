@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/">
+  <title>Form</title>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="http://localhost:9000/assets/css/vendor/import-material_icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <style>
+    html {
+      font-family: Roboto !important;
+    }
+  </style>
+</head>
+<body>
+<script>
+  var pc_form = {
+    errorCallback: function (msg) {
+      console.log(msg);
+    },
+    baseUrl: 'http://local.particeep.com:9000/app',
+    consumerId: '52c5a6c5-accd-4b94-9e6a-fd2c8cc819e1',
+    formId: '3ff1c761-c213-4c4e-b0b2-c66d2edc4961',
+    weights: [
+      1,
+      2,
+      3,
+    ],
+    messages: {
+      addQuestion: 'Ajouter une question',
+      addSection: 'Ajouter une section',
+      addOption: 'Add option',
+      addValidation: 'Validation de la réponse',
+      save: 'Save',
+      duplicate: 'Duplicate',
+      delete: 'Delete',
+      minimize: 'Minimize',
+      documentValidation: {
+        AllowOnlySpecificFileTypes: 'Allow only specific file types',
+        filter: {
+          image: 'image',
+          spreadsheet: 'spreadsheet',
+          document: 'document',
+          presentation: 'presentation',
+          pdf: 'pdf',
+        }
+      },
+      condition: {
+        closePopup: 'Close',
+        relatedQuestion: 'In question',
+        relatedSection: 'In section',
+        popupTitle: 'Display condition',
+        popupDesc: 'Pick an answer which must be selected to display this question',
+        noQuestion: 'No question with possibilities',
+      },
+      placeholder: {
+        question: {
+          label: 'Question',
+          description: 'Description',
+          type: 'Type',
+          required: 'Required',
+        },
+        section: {
+          title: 'Titre de la section',
+          description: 'Section description (optional)'
+        },
+        option: {
+          label: 'Option',
+        },
+        validation: {
+          MAX_LENGTH: 'Nombre de caractères maximum',
+          MIN_LENGTH: 'Nombre de caractères minimum',
+          EMAIL: 'email',
+          PHONE: 'phone',
+          REGEX: 'pattern',
+        }
+      },
+      questionType: {
+        RADIO: 'Radio',
+        SELECT: 'Liste',
+        TEXT: 'Text',
+        LONGTEXT: 'Longtext',
+        CHECKBOX: 'Checkbox',
+        DATE: 'Date',
+        DOCUMENT: 'DOCUMENT',
+      },
+      weight: {
+        1: 1,
+        2: 2,
+        3: 3,
+      }
+    }
+  }
+</script>
+<div style="margin-top: 200px"></div>
+<pc-form>
+  Loading....
+</pc-form>
+</body>
+</html>

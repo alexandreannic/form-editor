@@ -1,0 +1,28 @@
+<div class="pc-form_body">
+    <pc-section *ngFor="let section of form.sections; let i = index"
+                [section]="section"
+                [parent]="form"
+                [parentId]="form.id"
+                [index]="i"
+                [isActive]="(acSection$ | async) == i">
+    </pc-section>
+</div>
+
+<div class="pc-form_actions" #actions (window:scroll)="stickActions()">
+  <button (click)="addSection()"
+          mat-icon-button
+          [matTooltip]="(''|m).addSection"
+          matTooltipPosition="before"
+          class="margin-bottom">
+    <mat-icon>add_box</mat-icon>
+  </button>
+  <button (click)="addQuestion()"
+          mat-icon-button
+          [matTooltip]="(''|m).addQuestion"
+          matTooltipPosition="before"
+          class="margin-bottom">
+    <mat-icon>add</mat-icon>
+  </button>
+  <hr class="divider"/>
+  <pc-form-progress></pc-form-progress>
+</div>

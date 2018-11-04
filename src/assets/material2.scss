@@ -1,0 +1,28 @@
+@import 'variables';
+
+@include mat-core();
+@include angular-material-theme($pc-theme);
+
+.mat-icon-button:not(.mat-primary) {
+  color: $text-color-light !important;
+}
+
+.mat-slide-toggle-label {
+  height: 24px;
+}
+
+.form-field-compact {
+  .mat-form-field-underline {
+    position: initial !important;
+  }
+  .mat-form-field-infix {
+    border-top: 0 !important;
+  }
+  .mat-form-field-wrapper {
+    padding-bottom: 0 !important;
+  }
+  .mat-form-field-ripple {
+    bottom: 0 !important;
+    top: auto !important;
+  }
+}

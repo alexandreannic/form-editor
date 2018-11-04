@@ -1,0 +1,98 @@
+<div [formGroup]="form" [ngSwitch]="question.question_type">
+  <ng-container *ngIf="isActive">
+    <header [@slide] class="pc-question_header">
+      <aside class="pc-question_actions">
+        <mat-form-field class="pc-question_type form-field-compact">
+          <mat-select formControlName="question_type">
+            <mat-option *ngFor="let key of Type | keys" [value]="key">
+              {{(''|m).questionType[key]}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <hr class="pc-question_actions_divider"/>
+
+        <button mat-icon-button (click)="inactive(); $event.stopPropagation()" [matTooltip]="(''|m).minimize">
+          <mat-icon>minimize</mat-icon>
+        </button>
+        <button mat-icon-button (click)="duplicate(); $event.stopPropagation()" [matTooltip]="(''|m).duplicate">
+          <mat-icon>content_copy</mat-icon>
+        </button>
+        <button mat-icon-button (click)="remove(); $event.stopPropagation()" [matTooltip]="(''|m).delete">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </aside>
+    </header>
+
+    <pc-feature [label]="(''|m).required">
+      <mat-slide-toggle pc-feature-action formControlName="required"></mat-slide-toggle>
+    </pc-feature>
+
+    <pc-dep [question]="question" [form]="form"></pc-dep>
+
+    <pc-question-validation
+      *ngSwitchCase="Type.TEXT"
+      [form]="form"></pc-question-validation>
+
+    <pc-question-validation
+      *ngSwitchCase="Type.LONGTEXT"
+      [types]="[VALIDATIONS.MAX_LENGTH, VALIDATIONS.MIN_LENGTH]"
+      [form]="form"></pc-question-validation>
+
+    <pc-question-validation-document
+      *ngSwitchCase="Type.DOCUMENT"
+      [form]="form"></pc-question-validation-document>
+  </ng-container>
+
+  <main class="pc-question_body">
+    <mat-form-field floatLabel="never" class="question_label form-field-compact">
+      <span matPrefix>{{question.index}} -&nbsp;</span>
+      <input matInput formControlName="label" [placeholder]="(''|m).placeholder.question.label">
+    </mat-form-field>
+
+    <mat-form-field floatLabel="never" class="question_description form-field-compact" *ngIf="isActive">
+            <textarea matInput formControlName="description" [placeholder]="(''|m).placeholder.question.description"
+                      matTextareaAutosize
+                      matAutosizeMinRows="2"
+                      matAutosizeMaxRows="5"
+                      style="resize: none; overflow:hidden"></textarea>
+    </mat-form-field>
+  </main>
+
+  <pc-question-type
+    *ngSwitchCase="Type.TEXT"
+    icon="short_text"
+    [text]="(''|m).questionType.TEXT"></pc-question-type>
+
+  <pc-question-type
+    *ngSwitchCase="Type.LONGTEXT"
+    icon="format_align_left"
+    [text]="(''|m).questionType.LONGTEXT"></pc-question-type>
+
+  <pc-question-type
+    *ngSwitchCase="Type.DATE"
+    icon="today"
+    [text]="(''|m).questionType.DATE"></pc-question-type>
+
+  <pc-question-type
+    *ngSwitchCase="Type.DOCUMENT"
+    icon="insert_drive_file"
+    [text]="(''|m).questionType.DOCUMENT"></pc-question-type>
+
+  <div *ngSwitchDefault class="question_answer">
+    <pc-possibility
+      *ngFor="let p of question.possibilities; let i = index"
+      [parent]="question"
+      [possibility]="p"
+      [parentId]="question.id"
+      [isActive]="isActive"
+      [index]="i"></pc-possibility>
+    <div class="pc-possibility-add" *ngIf="isActive">
+      <mat-icon class="pc-possibility_i"></mat-icon>
+      <button mat-button color="primary" (click)="addPossibility()"
+              class="pc-possibility-add_btn">
+        {{(''|m).addOption}}
+      </button>
+    </div>
+  </div>
+</div>

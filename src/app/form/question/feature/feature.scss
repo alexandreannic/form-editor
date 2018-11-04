@@ -1,0 +1,21 @@
+@import 'src/assets/variables';
+
+pc-feature {
+  border-bottom: 1px solid $color-divider;
+  padding: margin() margin(2);
+  display: block;
+}
+
+.pc-feature_title {
+  font-weight: $text-bold;
+  display: flex;
+  align-items: center;
+}
+
+.pc-feature-action {
+  margin-left: auto;
+}
+
+.pc-feature_body {
+  padding-top: margin();
+}
