@@ -5,6 +5,9 @@
 Form editor for Particeep API.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
 
+### Demo
+https://angular-form-editor.firebaseapp.com/
+
 ### Getting started
 Make sure you have Node version >= 5.0, NPM >= 3 and SBT installed
 
